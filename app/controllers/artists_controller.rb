@@ -9,10 +9,11 @@ class ArtistsController < ApplicationController
   
   def create 
     @artist = Artist.create(artist_params(:name, :bio))
+    redirect_to artists_path(@artist)
   end
   
   def edit 
-    
+    @artist = Artist.find(params[:id])
   end
   
   def update 
